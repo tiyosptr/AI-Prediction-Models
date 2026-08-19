@@ -1,0 +1,125 @@
+{
+  "timestamp": "2026-08-19T23:09:35.007476",
+  "input_file": "c:\\AI\\AI untuk Dashboard TA\\New folder\\dataset\\processed\\df_model_full.csv",
+  "output_file": "c:\\AI\\AI untuk Dashboard TA\\New folder\\dataset\\processed\\df_cleaned.csv",
+  "shape_before": {
+    "rows": 6340,
+    "cols": 27
+  },
+  "shape_after": {
+    "rows": 6340,
+    "cols": 18
+  },
+  "rows_removed": 0,
+  "cols_removed": 9,
+  "cleaning_steps": [
+    {
+      "step": "Missing Values",
+      "desc": "Imputasi missing values selesai",
+      "before": 6340,
+      "after": 6340,
+      "removed": 0,
+      "pct": 0.0,
+      "detail": "0 kolom ditangani"
+    },
+    {
+      "step": "Duplikasi",
+      "desc": "Hapus baris duplikat",
+      "before": 6340,
+      "after": 6340,
+      "removed": 0,
+      "pct": 0.0,
+      "detail": "0 baris duplikat dihapus"
+    },
+    {
+      "step": "Outlier",
+      "desc": "Winsorizing (capping) outlier selesai",
+      "before": 6340,
+      "after": 6340,
+      "removed": 0,
+      "pct": 0.0,
+      "detail": "4 kolom di-cap"
+    },
+    {
+      "step": "Inkonsistensi",
+      "desc": "Perbaiki inkonsistensi struktural",
+      "before": 6340,
+      "after": 6340,
+      "removed": 0,
+      "pct": 0.0,
+      "detail": "1 rename, 0 range violations"
+    }
+  ],
+  "imputation": {},
+  "winsorizing": [
+    {
+      "kolom": "total_pass",
+      "lower": 0.0,
+      "upper": 8.0,
+      "n_capped": 7,
+      "pct_capped": 0.11
+    },
+    {
+      "kolom": "total_reject",
+      "lower": 0.0,
+      "upper": 0.0,
+      "n_capped": 927,
+      "pct_capped": 14.62
+    },
+    {
+      "kolom": "pass_rate",
+      "lower": 0.0,
+      "upper": 0.0099,
+      "n_capped": 36,
+      "pct_capped": 0.57
+    },
+    {
+      "kolom": "downtime_rate",
+      "lower": 0.0,
+      "upper": 0.1071,
+      "n_capped": 818,
+      "pct_capped": 12.9
+    }
+  ],
+  "dropped_cols": {
+    "avg_sec_per_unit": "Redundan (korelasi > 0.95)",
+    "total_output.1": "Redundan (korelasi > 0.95)",
+    "reject_rate": "Redundan (korelasi > 0.95)",
+    "total_downtime_seconds": "Redundan (korelasi > 0.95)",
+    "month": "Redundan (korelasi > 0.95)",
+    "troughput": "Redundan (korelasi > 0.95)",
+    "oee_line": "Redundan (korelasi > 0.95)",
+    "total_reject.1": "Redundan (korelasi > 0.95)",
+    "shift_num": "Redundan (korelasi > 0.95)"
+  },
+  "renamed_cols": {
+    "perfomance": "performance"
+  },
+  "final_columns": [
+    "recorded_date",
+    "line_name",
+    "shift_name",
+    "recorded_hour",
+    "day_of_week",
+    "week_of_year",
+    "is_weekend",
+    "line_encoded",
+    "total_output",
+    "total_pass",
+    "total_reject",
+    "pass_rate",
+    "downtime_rate",
+    "availability",
+    "performance",
+    "quality",
+    "downtime_count",
+    "efficiency"
+  ],
+  "validation": {
+    "Missing values": "\u2705 PASS",
+    "Duplikat": "\u2705 PASS",
+    "Infinite values": "\u2705 PASS",
+    "Row count": "\u2705 PASS (6,340 rows)",
+    "All-zero columns": "\u26a0\ufe0f WARNING: ['total_reject']"
+  }
+}

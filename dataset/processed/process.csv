@@ -1,0 +1,13 @@
+id,name,index,machine_id
+09433dfe-f28a-40e3-93d0-7a7d10d4ff17,Incoming Inspection,1,081f1278-fb94-44c6-a64f-edfe6a0596ca
+7a097e72-31e5-4932-84d7-c44d89277cb0,Packaging,2,40562c3a-a3ca-42ce-845b-a30eb7d29baf
+cd6d3f76-817e-4e1f-94f8-c73bc31b6c05,Assembly,3,ae7bd7e8-7685-4fe3-b072-678fa364e511
+839ca35b-e46e-4336-a8db-e34c93ba9fe8,Incoming Inspection,1,3faf3afb-3555-496f-87f9-3d4c5eff547d
+d1ea6530-b256-4a07-a54b-ae35b62f74ad,Packaging,2,59c27b6a-036f-4fd3-acc7-5411c8abbf45
+2fcc0ba6-62bf-45e4-80c7-ee82aa79e08a,Testing,3,62a463fd-f0a0-4e9a-8b62-d6f515166742
+6fb3efa3-bb9f-4170-a724-3e592d3e2843,Packaging,1,5f17b65f-ce14-4947-ae69-a69b764f7954
+59037db9-0f9f-4d0f-8fa8-8a8a319396d2,Assembly,2,7a617b8f-449e-44c6-9bc5-128ab2b92b57
+41c4d11a-1311-4931-9fc4-ff29452177ef,Incoming Inspection,3,6ff72bf1-604d-40ea-937e-af3286af29fa
+4a716c0b-572e-47c4-8f78-fc8f49215cc2,Incoming Inspection,1,e5e8c561-1fca-41f2-a05b-155361b81152
+da41a5c6-6a8d-4ad2-ad8c-2b4b222a601f,Assembly,2,ea775db1-2c5b-493f-be45-ec74f3758731
+6711206d-366a-4467-9a3c-85da78a9d027,Forming/Molding,3,1e561bdf-0f39-43a8-855d-b1884d670ac3
