@@ -1,0 +1,244 @@
+{
+  "timestamp": "2026-08-19T23:49:35.200534",
+  "input_file": "c:\\AI\\AI untuk Dashboard TA\\New folder\\dataset\\processed\\predictive_maintenance_raw.csv",
+  "shape_before": {
+    "rows": 6340,
+    "cols": 29
+  },
+  "shape_after": {
+    "rows": 6340,
+    "cols": 28
+  },
+  "rows_removed": 0,
+  "cols_removed": 1,
+  "cleaning_steps": [
+    {
+      "step": "Drop Kolom",
+      "desc": "Hapus kolom ID/UUID & konstanta",
+      "rows_before": 6340,
+      "rows_after": 6340,
+      "rows_removed": 0,
+      "cols_before": 29,
+      "cols_after": 24,
+      "cols_removed": 5,
+      "detail": "5 kolom dihapus"
+    },
+    {
+      "step": "Tipe Data",
+      "desc": "Encoding & optimasi tipe data",
+      "rows_before": 6340,
+      "rows_after": 6340,
+      "rows_removed": 0,
+      "cols_before": null,
+      "cols_after": null,
+      "cols_removed": null,
+      "detail": "datetime ekstrak 6 fitur temporal, encode machine/line/target"
+    },
+    {
+      "step": "Missing Values",
+      "desc": "Imputasi missing values",
+      "rows_before": 6340,
+      "rows_after": 6340,
+      "rows_removed": 0,
+      "cols_before": null,
+      "cols_after": null,
+      "cols_removed": null,
+      "detail": "{'total_produced': 'Median per mesin (45 \u2192 0 null)', 'total_pass': 'Median per mesin (45 \u2192 0 null)', 'total_reject': 'Median per mesin (45 \u2192 0 null)', 'defect_rate': 'Recalculate total_reject/total_produced (63 \u2192 0 null)', 'days_since_last_maintenance': 'Fill 0 (mesin baru, belum pernah maintenance) [264 rows]', 'hours_to_next_failure_event': 'Dibiarkan NaN (123 rows) \u2014 hanya valid untuk regression dataset, rows ini di-drop saat membuat pm_cleaned_regression.csv'}"
+    },
+    {
+      "step": "Duplikasi",
+      "desc": "Hapus baris duplikat",
+      "rows_before": 6340,
+      "rows_after": 6340,
+      "rows_removed": 0,
+      "cols_before": null,
+      "cols_after": null,
+      "cols_removed": null,
+      "detail": "0 baris dihapus"
+    },
+    {
+      "step": "Outlier",
+      "desc": "Winsorizing IQR capping",
+      "rows_before": 6340,
+      "rows_after": 6340,
+      "rows_removed": 0,
+      "cols_before": null,
+      "cols_after": null,
+      "cols_removed": null,
+      "detail": "10 kolom di-cap"
+    },
+    {
+      "step": "Konsistensi",
+      "desc": "Validasi range & konsistensi kalkulasi",
+      "rows_before": 6340,
+      "rows_after": 6340,
+      "rows_removed": 0,
+      "cols_before": null,
+      "cols_after": null,
+      "cols_removed": null,
+      "detail": "0 range violations, 0 pass+reject violations"
+    }
+  ],
+  "imputation": {
+    "total_produced": "Median per mesin (45 \u2192 0 null)",
+    "total_pass": "Median per mesin (45 \u2192 0 null)",
+    "total_reject": "Median per mesin (45 \u2192 0 null)",
+    "defect_rate": "Recalculate total_reject/total_produced (63 \u2192 0 null)",
+    "days_since_last_maintenance": "Fill 0 (mesin baru, belum pernah maintenance) [264 rows]",
+    "hours_to_next_failure_event": "Dibiarkan NaN (123 rows) \u2014 hanya valid untuk regression dataset, rows ini di-drop saat membuat pm_cleaned_regression.csv"
+  },
+  "winsorizing": [
+    {
+      "kolom": "throughput_units_per_hour",
+      "lower": 53.5513,
+      "upper": 173.6612,
+      "n_capped": 32,
+      "pct": 0.5
+    },
+    {
+      "kolom": "shift_total_pass",
+      "lower": 0.0,
+      "upper": 8.0,
+      "n_capped": 7,
+      "pct": 0.11
+    },
+    {
+      "kolom": "operating_seconds",
+      "lower": 25715.625,
+      "upper": 28800,
+      "n_capped": 818,
+      "pct": 12.9
+    },
+    {
+      "kolom": "availability",
+      "lower": 0.8929,
+      "upper": 1.0,
+      "n_capped": 819,
+      "pct": 12.92
+    },
+    {
+      "kolom": "quality",
+      "lower": 1.0,
+      "upper": 1.0,
+      "n_capped": 943,
+      "pct": 14.87
+    },
+    {
+      "kolom": "total_produced",
+      "lower": 0.0,
+      "upper": 8.0,
+      "n_capped": 7,
+      "pct": 0.11
+    },
+    {
+      "kolom": "total_pass",
+      "lower": 0.0,
+      "upper": 8.0,
+      "n_capped": 4,
+      "pct": 0.06
+    },
+    {
+      "kolom": "total_reject",
+      "lower": 0.0,
+      "upper": 0.0,
+      "n_capped": 918,
+      "pct": 14.48
+    },
+    {
+      "kolom": "defect_rate",
+      "lower": 0.0,
+      "upper": 0.0,
+      "n_capped": 918,
+      "pct": 14.48
+    },
+    {
+      "kolom": "days_since_last_maintenance",
+      "lower": 0,
+      "upper": "24.7837",
+      "n_capped": 388,
+      "pct": 6.12
+    }
+  ],
+  "encode_mapping": {
+    "machine_name": {
+      "Assembly Robot 04": 0,
+      "CNC Milling 05": 1,
+      "Conveyor & Sorter 10": 2,
+      "Injection Molding 07": 3,
+      "Injection Molding 08": 4,
+      "Packaging Machine 09": 5,
+      "SMT Placement 12": 6,
+      "Torque Screwdriver Cell 02": 7,
+      "Torque Screwdriver Cell 06": 8,
+      "Torque Screwdriver Cell 11": 9,
+      "Vision Inspection 01": 10,
+      "Wire Bonding 03": 11
+    },
+    "line_name": {
+      "Line A": 0,
+      "Line B": 1,
+      "Line C": 2,
+      "Line D": 3
+    },
+    "maintenance_risk_level": {
+      "No Risk": 0,
+      "Low Risk": 1,
+      "Medium Risk": 2,
+      "High Risk": 3
+    }
+  },
+  "feature_cols": [
+    "total_output",
+    "avg_cycle_time_sec",
+    "throughput_units_per_hour",
+    "shift_total_pass",
+    "operating_seconds",
+    "oee",
+    "availability",
+    "performance",
+    "quality",
+    "total_produced",
+    "total_pass",
+    "total_reject",
+    "defect_rate",
+    "cum_running_hours",
+    "days_since_last_maintenance",
+    "corrective_wo_last_7d",
+    "preventive_wo_last_30d",
+    "hour_of_day",
+    "day_of_week",
+    "week_of_year",
+    "month",
+    "is_weekend",
+    "is_night_shift",
+    "machine_encoded",
+    "line_encoded"
+  ],
+  "target_cols": {
+    "binary": "failure_binary",
+    "multiclass": "risk_level_encoded",
+    "regression": "hours_to_next_failure_event"
+  },
+  "class_imbalance": {
+    "binary_ratio": 4.07,
+    "recommendation": [
+      "SMOTE",
+      "class_weight=balanced",
+      "scale_pos_weight for XGBoost"
+    ]
+  },
+  "validation": {
+    "Missing values (excl. reg target)": "\u274c FAIL (264)",
+    "Duplikat": "\u2705 PASS",
+    "Infinite values": "\u2705 PASS",
+    "Row count": "\u2705 6,340 rows (100.0% retained)",
+    "failure_binary encoded": "\u2705 PASS",
+    "risk_level_encoded present": "\u2705 PASS"
+  },
+  "output_files": [
+    "c:\\AI\\AI untuk Dashboard TA\\New folder\\dataset\\processed\\pm_cleaned_full.csv",
+    "c:\\AI\\AI untuk Dashboard TA\\New folder\\dataset\\processed\\pm_cleaned_binary.csv",
+    "c:\\AI\\AI untuk Dashboard TA\\New folder\\dataset\\processed\\pm_cleaned_multiclass.csv",
+    "c:\\AI\\AI untuk Dashboard TA\\New folder\\dataset\\processed\\pm_cleaned_regression.csv"
+  ]
+}
